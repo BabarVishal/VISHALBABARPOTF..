@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vishal Babar - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to bottom, #4e54c8, #8f94fb);
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        nav {
+            background: linear-gradient(to bottom, #4e54c8, #8f94fb);
+            padding: 20px 20px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 0px;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+            margin-right: 40px;
+        }
+
+        .nav-links a:hover {
+            color: #ffcc00;
+        }
+
+        .logo a {
+            color: #ffcc00;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .nav-toggle {
+            display: none;
+            font-size: 1.5rem;
+            background: none;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+                background: rgba(0, 0, 0, 0.9);
+                position: absolute;
+                top: 60px;
+                right: 0;
+                width: 100%;
+                display: none;
+                z-index: 1001;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-toggle {
+                display: block;
+            }
+        }
+
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 100vh;
+            padding: 100px 20px;
+            flex-wrap: wrap;
+        }
+
+
+
+        .intro {
+            flex: 1;
+            padding: 20px;
+            animation: fadeInLeft 1.5s ease-in-out;
+        }
+
+        .intro h1 {
+            font-size: 3rem;
+             
+        }
+
+        .intro h2 {
+            font-size: 1.8rem;
+            margin: 10px 0;
+        }
+
+        .intro p {
+            font-size: 1rem;
+            margin-top: 10px;
+            line-height: 1.6;
+        }
+
+        .intro a {
+            color: #ffcc00;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .photo {
+            flex: 1;
+            text-align: center;
+            animation: fadeInRight 1.5s ease-in-out;
+        }
+
+        .photo img {
+            width: 55%;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            margin-top: -15%;
+        }
+
+        .projects {
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .projects h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease-in-out;
+        }
+
+        .project-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: left;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .project-card img {
+            width: 60%;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            margin-left: 100px;
+        }
+
+        .project-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .project-card p {
+            margin-bottom: 10px;
+        }
+
+        .project-card a {
+            color: #ffcc00;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .project-card a:hover {
+            color: #fff;
+        }
+
+        .project-card p span{
+            color: #8a4a4a;
+            
+        }
+
+        .faq-section {
+            
+      width: 70%;
+     margin-left: 230px;
+     padding: 70px 40px;
+}
+
+h1 {
+    font-size: 30px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.faq-item {
+    background: linear-gradient(to bottom, #4e54c8, #8f94fb);
+  margin-bottom: 50px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  cursor: pointer;
+}
+
+.faq-question span {
+  font-size: 16px;
+}
+
+.toggle-btn {
+  background-color: #6e44ff;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  font-size: 18px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.toggle-btn:active {
+  transform: scale(0.9);
+}
+
+.faq-answer {
+  display: none;
+  padding: 15px;
+  border-top: 1px solid #2d333b;
+  background-color: #6477b3;
+}
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(to bottom, #4e54c8, #8f94fb);
+            color: #fff;
+        }
+
+        footer a {
+            color: #ffcc00;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .footer-details {
+            margin-top: 10px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .social-links a {
+            margin: 0 10px;
+            color: #fff;
+            font-size: 1.5rem;
+        }
+
+        .social-links a:hover {
+            color: #ffcc00;
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <a href="#home">Vishal Babar</a>
+        </div>
+        <div class="nav-links" id="navLinks">
+            <a href="#home">Home</a>
+            <a href="#projects">Projects</a>
+            <a href="#faq-section">FAQs</a>
+            <a href="#contact">Contact</a>
+            <a href="https://www.linkedin.com/in/vishal-babar-14164b240/" target="_blank">LinkedIn</a>
+            <a href="https://github.com/BabarVishal" target="_blank">GitHub</a>
+        </div>
+        <button class="nav-toggle" onclick="toggleNav()">☰</button>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="intro">
+            <h1>Vishal Babar</h1>
+            <h2>Bachelor of Engineering - 2nd Year</h2>
+            <p>Aspiring software developer with a strong foundation in web technologies and backend development. Currently pursuing a Bachelor of Technology at Mumbai University. Passionate about creating innovative solutions and enhancing user experiences.</p>
+            <a href="#projects" target="_blank">View Project</a>
+        </div>
+        <div class="photo">
+            <img src="WhatsApp Image 2024-10-24 at 13.20.34_183a8fcf.jpg" alt="Vishal Babar">
+        </div>
+    </section>
+
+    <section class="projects" id="projects">
+        <h2>Projects</h2>
+        <div class="project-cards">
+            <div class="project-card">
+                <img src="Screenshot 2025-01-13 233041.png" alt="Short URL Application">
+                <h3>Dashboard</h3>
+                <p>I created a simple and responsive dashboard using <span>React.js </span>for the frontend. It includes features like a clean and user-friendly layout, a sidebar for navigation, and sections to display information such as cards, tables, or charts. The design is fully responsive, ensuring it works seamlessly on mobile, tablet, and desktop devices. This project highlights my skills in React.js and modern frontend development</p>
+                <a href="https://dashboard-phi-three-12.vercel.app/" target="_blank">View Project</a>
+            </div>
+            <div class="project-card">
+                <img src="Screenshot 2025-01-13 111257.png" alt="Short URL Application">
+                <h3>Blogging Platform</h3>
+                <p>During my 3rd semester, I developed a dynamic blogging platform as part of my college project. <span>Built using Node.js, Express, MongoDB, EJS, CSS, and Bootstrap</span>, the platform allows users to create, edit, and delete blog posts with features like a cover image, title, blog type (e.g., study, sports, news), and detailed content. The platform includes JWT-based authentication and authorization to ensure secure user management and sessions. I implemented a responsive design using Bootstrap and CSS to enhance usability across various devices. Additionally, the platform features a category filtering system, enabling users to easily browse blogs based on specific topics. This project helped me strengthen my full-stack development skills, including backend routing, database management, and creating modern, user-friendly web applications.</p>
+                <a href="https://github.com/BabarVishal/Blogging" target="_blank">View Project</a>
+            </div>
+            <div class="project-card">
+                <img src="Screenshot 2025-01-13 111628.png" alt="Short URL Application">
+                <h3>Chat Application</h3>
+                <p>During my 3rd semester, I developed a real-time chat application as part of my college project. <span>This application was built using Node.js for the backend and MongoDB as the database, while the frontend was created with HTML and CSS</span>. The platform enables users to engage in seamless one-on-one or group chats with a responsive and user-friendly interface. It also includes secure user authentication and a clean UI for enhanced interaction. This project allowed me to dive deeper into real-time communication technologies and backend integration, solidifying my skills in building interactive and scalable web applications</p>
+                <a href="https://pic-post-chat.vercel.app/" target="_blank">View Project</a>
+            </div>
+        </div>
+        <div class="project-cards">
+            <div class="project-card">
+                <img src="Screenshot 2025-01-13 104100.png" alt="Short URL Application">
+                <h3>Password Generator</h3>
+                <p>I developed a password generator application using <span>HTML, CSS, and JavaScript</span>. It allows users to specify the password length and select specific criteria like uppercase letters, lowercase letters, numbers, and symbols. The generated password is displayed in an elegant user interface with a copy-to-clipboard feature. This project demonstrates my expertise in creating secure and user-friendly tools</p>
+                <a href="https://babarvishal.github.io/Password-Generator/" target="_blank">View Project</a>
+            </div>
+            <div class="project-card">
+                <img src="Screenshot 2025-01-13 103935.png" alt="Short URL Application">
+                <h3>Quiz App</h3>
+                <p>I created an interactive quiz application using<span>HTML, CSS, and JavaScript</span>. It features multiple-choice questions, a clean UI, and a responsive design. Users can select an answer and submit it, showcasing my ability to build engaging educational tools with intuitive functionality</p>
+                <a href="https://babarvishal.github.io/Quiz-App/" target="_blank">View Project</a>
+            </div>
+            <div class="project-card">
+                <img src="Screenshot 2025-01-13 104315.png" alt="Short URL Application">
+                <h3>Drawing App</h3>
+                <p>I developed an interactive drawing application using <span>HTML, CSS, and JavaScript</span>. It features a customizable brush size, color selection, and a clear canvas option, all in a clean and responsive design. The project highlights my skills in creating functional web applications with intuitive user interfaces, and I plan to add features like saving drawings and undo/redo functionality in the future.</p>
+                <a href="https://babarvishal.github.io/Drawing-App/" target="_blank">View Project</a>
+            </div>
+        </div>
+    </section>
+    <section class="faq-section" id="faq-section">
+        <h1>FAQs</h1>
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Q. Why should you hire me?</span>
+            <button class="toggle-btn">+</button>
+          </div>
+          <div class="faq-answer">
+            <p>I’m passionate about continuously improving my skills. For example, I’m currently doing #100DaysOfCode in web development to become a better full-stack developer and expanding my knowledge in advanced development techniques.
+                </p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Q. What is the #100DaysOfCode challenge?</span>
+            <button class="toggle-btn">+</button>
+          </div>
+          <div class="faq-answer">
+            <p>The #100DaysOfCode challenge is a commitment to coding for at least an hour every day for 100 consecutive days. The goal is to build consistent coding habits, improve skills, and learn new technologies. During this journey, participants share their progress on social media using the hashtag #100DaysOfCode.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Q. What will I learn during the #100DaysOfCode challenge with Harkirat Singh?</span>
+            <button class="toggle-btn">+</button>
+          </div>
+          <div class="faq-answer">
+            <p>During the #100DaysOfCode challenge with Harkirat Singh, you will focus on full-stack web development. Topics will include advanced JavaScript, backend development with Node.js, database integration, and building real-world projects. You will also improve your problem-solving skills and explore DSA (Data Structures and Algorithms) to become a better developer.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">
+              <span>Q. What is my approach to learning new technologies?</span>
+              <button class="toggle-btn">+</button>
+            </div>
+            <div class="faq-answer">
+              <p>I prefer hands-on learning, which is why I follow coding challenges like #100DaysOfCode. By building projects, experimenting with new technologies, and engaging with coding communities, I can gain practical experience. I also dedicate time to understanding the theory behind the technologies I work with to ensure a deeper understanding.</p>
+            </div>
+          </div>
+      </section>
+    
+    <footer id="contact">
+        <p>Contact me at <a href="mailto:vishalbabar@example.com">vishalbabar7351@gmail.com</a></p>
+        <div class="footer-details">
+            <p>Phone: +91-8999528919</p>
+            <p>Location: Mumbai, India</p>
+        </div>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/vishal-babar-14164b240/" target="_blank">LinkedIn</a>
+            <a href="https://github.com/BabarVishal" target="_blank">GitHub</a>
+            <a href="https://x.com/VishalBaba18949" target="_blank">X</a>
+        </div>
+    </footer>
+
+    <script>
+        function toggleNav() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+        const faqItems = document.querySelectorAll('.faq-item');
+
+faqItems.forEach(item => {
+  const btn = item.querySelector('.toggle-btn');
+  const answer = item.querySelector('.faq-answer');
+
+  btn.addEventListener('click', () => {
+    const isVisible = answer.style.display === 'block';
+    answer.style.display = isVisible ? 'none' : 'block';
+    btn.textContent = isVisible ? '+' : '−';
+  });
+});
+
+    </script>
+</body>
+</html>
+
+
